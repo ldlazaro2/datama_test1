@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.dashboard-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 500px;
+}
+
+h1 {
+    color: #D50000;
+}
+
+h2 {
+    margin-top: 10px;
+    color: #FFD700;
+}
+
+.gas-table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+.gas-table th, .gas-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.gas-table th {
+    background: #FFD700;
+    color: black;
+}
+
+button {
+    background: #FFD700;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #FFC107;
+}
+
+.logout-button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+}

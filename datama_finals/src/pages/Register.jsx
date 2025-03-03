@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import supabase from "../helper/supabaseClient";
 import { Link } from "react-router-dom";
+import "./Register.css"; // Import the register.css file
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -30,11 +31,10 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className="register-container">
       <h2>Register</h2>
-      <br></br>
-      {message && <span>{message}</span>}
-      <form onSubmit={handleSubmit}>
+      {message && <span className="register-message">{message}</span>}
+      <form className="register-form" onSubmit={handleSubmit}>
         <input
           onChange={(e) => setEmail(e.target.value)}
           value={email}
@@ -52,7 +52,9 @@ function Register() {
         <button type="submit">Create Account</button>
       </form>
       <span>Already have an account?</span>
-      <Link to="/login">Log in.</Link>
+      <Link to="/login" className="register-link">
+        Log in.
+      </Link>
     </div>
   );
 }

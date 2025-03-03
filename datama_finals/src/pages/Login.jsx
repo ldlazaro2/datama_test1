@@ -1,61 +1,27 @@
-import React, { useState } from "react";
-import supabase from "../helper/supabaseClient";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css"; // Ensure Login.css exists and is correctly imported
 
 function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    setMessage("");
-
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
-    });
-
-    if (error) {
-      setMessage(error.message);
-      setEmail("");
-      setPassword("");
-      return;
-    }
-
-    if (data) {
-      navigate("/dashboard");
-      return null;
-    }
+    navigate("/dashboard"); // Redirect to Dashboard after clicking Log in
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h2>Login</h2>
-      <br></br>
-      {message && <span>{message}</span>}
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          type="email"
-          placeholder="Email"
-          required
-        />
-        <input
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          type="password"
-          placeholder="Password"
-          required
-        />
+      <form className="login-form" onSubmit={handleSubmit}>
+        <input type="text" placeholder="Employee ID" required />
+        <input type="password" placeholder="Password" required />
         <button type="submit">Log in</button>
       </form>
-      <span>Don't have an account?</span>
-      <Link to="/register">Register.</Link>
+      <p>Demo only. No actual authentication.</p>
     </div>
   );
 }
 
 export default Login;
+
